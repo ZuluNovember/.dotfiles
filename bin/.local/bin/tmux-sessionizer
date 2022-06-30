@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+    # Adding support for simply pass the current working directory or a specified path
+    selected="$1" && [[ "$selected" == '.' ]] && selected="$PWD"
+else
+    selected=$(find ~/github.com/sourcegraph ~/github.com/ZuluNovember ~/.config ~/github.com/BiTaksi -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+# This is works in all the situations.
+# If you are in a tmux session, and the selected session does exist, switch to it; if not create a new one and then swith to it.
+if [[ -n $TMUX ]]; then
+  tmux switch-client -t "$selected_name" \
+  || tmux new-session -ds "$selected_name" -c "$selected" \
+  && tmux switch-client -t "$selected_name"
+# If outside of a tmux session, try to create a new session; if fails attach to the selected session 
+elif [[ -z $TMUX ]]; then
+  tmux new-session -s "$selected_name" -c "$selected" \
+  || tmux attach -t "$selected_name"
+fi
