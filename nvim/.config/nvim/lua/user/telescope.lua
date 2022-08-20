@@ -19,10 +19,6 @@ telescope.setup {
       },
 
       n = {
-        ["<leader>ff"] = require"user.telescope-config".project_files,
-        ["<leader>fg"] = builtin.grep_string,
-        ["<leader>fr"] = builtin.lsp_references,
-        ["<leader>fi"] = builtin.implementations,
       },
     },
   },
@@ -49,5 +45,5 @@ local opts = { noremap = true, silent = true }
 
 keymap("n", "<leader>ff", ":lua require'user.telescope-config'.project_files()<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>flr", ":Telescope lsp_references<CR>", opts)
+keymap("n", "<leader>fr", ":Telescope lsp_references<CR>", opts)
 keymap("n", "<leader>fli", ":Telescope lsp_implementations<CR>", opts)
