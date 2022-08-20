@@ -1,11 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -106,9 +102,19 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
+export PATH=$PATH:/usr/local/go/bin
+export PATH="${HOME}/go/bin:${PATH}"
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/enizcoban/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/enizcoban/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/enizcoban/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/enizcoban/google-cloud-sdk/completion.zsh.inc'; fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+. /home/zulu/.asdf/asdf.sh
+autoload -Uz compinit && compinit
+PROG=sg source /home/zulu/.sourcegraph/sg.zsh_autocomplete
