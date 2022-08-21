@@ -51,8 +51,8 @@ yabai -m rule --add app="^Slack$" space=slack
 # yabai -m config --space games layout        float
 
 # exceptions
-applications="(System Preferences)"
-yabai -m rule --add app="System Preferences.*" manage=off mouse_follows_focus=off
+applications="(System Preferences|Finder)"
+yabai -m rule --add app="${applications}" manage=off mouse_follows_focus=off
 yabai -m rule --add title="JetBrains Toolbox" manage=off mouse_follows_focus=off
 
 # signals
