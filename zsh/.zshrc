@@ -3,9 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -106,6 +103,10 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+export PATH="${HOME}/go/bin:${PATH}"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/enizcoban/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/enizcoban/google-cloud-sdk/path.zsh.inc'; fi
