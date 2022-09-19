@@ -17,7 +17,6 @@ vim.cmd([[
     autocmd FileType markdown setlocal wrap
     autocmd FileType markdown setlocal spell
   augroup end
-
 ]])
   -- augroup _lsp
   --   autocmd!
@@ -29,3 +28,7 @@ vim.api.nvim_create_autocmd({"VimEnter"}, {
   callback = openTelescope
 })
 
+vim.api.nvim_create_autocmd({"BufReadPost,FileReadPost"}, {
+  pattern = {"*"},
+  command = "normal zR"
+})

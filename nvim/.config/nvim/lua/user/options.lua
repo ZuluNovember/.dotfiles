@@ -32,6 +32,8 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  foldmethod = "expr",
+  foldexpr = "nvim_treesitter#foldexpr()"
 }
 
 vim.opt.shortmess:append "c"
