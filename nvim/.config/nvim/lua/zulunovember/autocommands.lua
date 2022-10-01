@@ -27,8 +27,3 @@ vim.api.nvim_create_autocmd({"VimEnter"}, {
   pattern = {"*"},
   callback = openTelescope
 })
-
-vim.api.nvim_create_autocmd({"BufReadPost,FileReadPost"}, {
-  pattern = {"*"},
-  command = "normal zR"
-})

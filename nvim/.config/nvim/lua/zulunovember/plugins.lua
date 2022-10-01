@@ -48,9 +48,13 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 
+    -- File explorer
+    use("tamago324/lir.nvim")
+    use("kyazdani42/nvim-web-devicons")
+
 	-- Colorschemes
 	use("navarasu/onedark.nvim")
-  use("ellisonleao/gruvbox.nvim")
+    use("ellisonleao/gruvbox.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -67,6 +71,7 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
+    use("nvim-treesitter/nvim-treesitter-context")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

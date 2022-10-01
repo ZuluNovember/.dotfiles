@@ -1,7 +1,5 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -25,16 +23,19 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- Navigate quickfix list
+keymap("n", "gn", ":cn<CR>", opts)
+keymap("n", "gp", ":cp<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
+--config
+keymap("n", "<Leader>ce", ":e ~/.config/nvim/init.lua<CR>", opts)
+keymap("n", "<Leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", opts)
+
 -- Insert --
--- Press jk fast to enter
 keymap("i", "C-c", "<ESC>", opts)
 
 -- Visual --
