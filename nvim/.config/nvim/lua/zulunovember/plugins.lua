@@ -47,6 +47,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("nvim-lualine/lualine.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
+    use ("TimUntersberger/neogit")
 
     -- File explorer
     use("tamago324/lir.nvim")
@@ -61,6 +62,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-nvim-lsp")
 	use("L3MON4D3/LuaSnip")
+    use("onsails/lspkind.nvim")
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
