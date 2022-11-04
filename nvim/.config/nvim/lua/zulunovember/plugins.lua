@@ -47,7 +47,10 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("nvim-lualine/lualine.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
+
+    -- git
     use ("TimUntersberger/neogit")
+    use ("ThePrimeagen/git-worktree.nvim")
 
     -- File explorer
     use("tamago324/lir.nvim")

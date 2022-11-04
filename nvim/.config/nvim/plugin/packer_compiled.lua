@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/enizcoban/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["git-worktree.nvim"] = {
+    loaded = true,
+    path = "/Users/enizcoban/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
+    url = "https://github.com/ThePrimeagen/git-worktree.nvim"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/Users/enizcoban/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",

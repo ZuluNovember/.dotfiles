@@ -78,4 +78,4 @@ neogit.setup {
 
 local opts = { silent = true, noremap = true }
 
-vim.api.nvim_set_keymap("n", "<Leader>g", ":Neogit<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>gg", ":Neogit<CR>", opts)
