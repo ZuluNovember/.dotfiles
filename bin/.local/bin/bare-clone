@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 0 ]]; then
+    echo "Please enter an URL"
+    exit 0
+fi
+
+selected=$(find ~/github.com -mindepth 1 -maxdepth 1 -type d | fzf)
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+url=$1
+dir_name=$(basename "$url")
+
+fullpath="$selected/$dir_name"
+
+git clone --bare "$1" "$fullpath"
+git --git-dir="$fullpath" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
