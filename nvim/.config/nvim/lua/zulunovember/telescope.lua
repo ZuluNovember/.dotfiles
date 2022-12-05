@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
-local builtin = require "telescope.builtin"
 local keymap = vim.api.nvim_set_keymap
 
 telescope.setup {

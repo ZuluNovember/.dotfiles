@@ -31,10 +31,6 @@ keymap("n", "gp", ":cp<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
---config
-keymap("n", "<Leader>ce", ":e ~/.config/nvim/init.lua<CR>", opts)
-keymap("n", "<Leader>cr", ":luafile ~/.config/nvim/init.lua<CR>", opts)
-
 -- Insert --
 keymap("i", "C-c", "<ESC>", opts)
 

@@ -1,2 +1,2 @@
-require("nvim-lsp-installer").setup {}
+require("mason").setup()
 require("zulunovember.lsp.handlers")
