@@ -1,26 +1,30 @@
 local M = {}
 
-local function lsp_keymaps(bufnr)
-    local opts = { noremap = true, silent = true }
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gT", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+local on_attach = function(_, bufnr)
+    local nmap = function(keys, func, desc)
+        if desc then
+            desc = 'LSP: ' .. desc
+        end
+
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    end
+
+    nmap('<leader>lr', vim.lsp.buf.rename)
+    nmap('<leader>la', vim.lsp.buf.code_action)
+    nmap('<leader>lf', vim.lsp.buf.format)
+
+    nmap('gd', vim.lsp.buf.definition)
+    nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+    nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+    nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+    nmap('<leader>fs', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+    nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 end
 
-local on_attach = function(client, bufnr)
-    client.server_capabilities.document_formatting = false
-    lsp_keymaps(bufnr)
-end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local nvim_lsp = require("lspconfig")
@@ -43,11 +47,30 @@ nvim_lsp["eslint"].setup({
     root_dir = require('lspconfig.util').root_pattern('.git'),
 })
 
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
 nvim_lsp["sumneko_lua"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
     root_dir = require('lspconfig.util').root_pattern('.git'),
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+                path = runtime_path,
+            },
+            diagnostics = {
+                globals = { 'vim' },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file('', true),
+                checkThirdParty = false,
+            },
+            telemetry = { enable = false },
+        },
+    },
 })
 
 nvim_lsp["gopls"].setup {

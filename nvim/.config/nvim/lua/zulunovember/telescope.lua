@@ -46,7 +46,5 @@ local opts = { noremap = true, silent = true }
 
 keymap("n", "<leader>ff", ":lua require'zulunovember.telescope-config'.project_files()<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-keymap("n", "gr", ":Telescope lsp_references<CR>", opts)
-keymap("n", "<leader>fli", ":Telescope lsp_implementations<CR>", opts)
 keymap("n", "<leader>gw", ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", opts)
 keymap("n", "<leader>gn", ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", opts)
