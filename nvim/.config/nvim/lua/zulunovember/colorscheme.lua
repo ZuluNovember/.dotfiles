@@ -1,13 +1,10 @@
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_transparent_background = 1
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-vim.opt.background = "dark" -- or "light" for light mode
-
-
 vim.cmd [[
 try
-  colorscheme gruvbox
+  colorscheme onigiri
 catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme tokyonight
+  colorscheme gruvbox
 endtry
 ]]
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

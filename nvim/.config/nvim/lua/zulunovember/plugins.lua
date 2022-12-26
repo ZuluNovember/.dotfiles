@@ -59,9 +59,8 @@ return packer.startup(function(use)
     use("kyazdani42/nvim-web-devicons")
 
     -- Colorschemes
-    use("navarasu/onedark.nvim")
     use("ellisonleao/gruvbox.nvim")
-    use("Yazeed1s/oh-lucy.nvim")
+    use("kaiuri/onigiri.nvim")
 
     use { -- Autocompletion
         'hrsh7th/nvim-cmp',
