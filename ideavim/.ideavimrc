@@ -1,0 +1,92 @@
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+let mapleader=" "
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=8
+set sidescrolloff=8
+set clipboard=unnamed
+set hlsearch
+set ignorecase
+set smartcase
+set guicursor=i:ver20
+set visualbell
+set relativenumber
+
+" Plugins
+set highlightedyank
+set nerdtree
+set ideajoin
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+map Y y$
+
+" Code actions
+map <leader>lf <Action>(ReformatCode)
+map <leader>lr <Action>(RenameElement)
+map <leader>la <Action>(ShowIntentionActions)
+map <leader>lc <Action>(CommentByLineComment)
+
+" Search
+map <leader>ff <Action>(GotoFile)
+map <leader>fg <Action>(FindInPath)
+map <leader>fs <Action>(GotoSymbol)
+
+" Git
+map <leader>gb <Action>(Git.Branch)
+map <leader>ga <Action>(Annotate)
+
+" Run  - Debug
+map <leader>rr <Action>(Run)
+map <leader>rs <Action>(Stop)
+map <leader>dd <Action>(Debug)
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>ss <Action>(StepOver)
+map <leader>si <Action>(StepInto)
+map <leader>so <Action>(StepOut)
+
+" Navigation
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
+
+map <leader>x :NERDTreeToggle<CR>
+map <leader>t <Action>(ActivateTerminalToolWindow)
+
+map gl <Action>(ShowErrorDescription)
+map gr <Action>(ShowUsages)
+map gi <Action>(GotoImplementation)
+
+" Project
+map <leader>po <Action>(ManageRecentProjects)
+map <leader>pc <Action>(CloseProject)
+
+" Errors
+map <leader>en <Action>(GotoNextError)
+map <leader>ep <Action>(GotoPreviousError)
+
+" Views
+map <leader>v <Action>(ToggleDistractionFreeMode)
+
+" Handlers
+sethandler <C-C> n-v:ide i:vim
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
