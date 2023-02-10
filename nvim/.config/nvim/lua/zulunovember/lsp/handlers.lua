@@ -49,6 +49,8 @@ nvim_lsp["eslint"].setup({
     root_dir = require('lspconfig.util').root_pattern('.git'),
 })
 
+nvim_lsp["quick_lint_js"].setup{}
+
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
@@ -93,5 +95,12 @@ nvim_lsp["gopls"].setup {
         buildFlags = { "-tags=integration" },
     }
 }
+
+nvim_lsp["pyright"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+    root_dir = require('lspconfig.util').root_pattern('.git'),
+})
 
 return M
