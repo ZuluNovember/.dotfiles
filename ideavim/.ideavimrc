@@ -33,6 +33,7 @@ map <leader>lf <Action>(ReformatCode)
 map <leader>lr <Action>(RenameElement)
 map <leader>la <Action>(ShowIntentionActions)
 map <leader>lc <Action>(CommentByLineComment)
+map <leader>lR <Action>(Refactorings.QuickListPopupAction)
 
 " Search
 map <leader>ff <Action>(GotoFile)
@@ -40,7 +41,7 @@ map <leader>fg <Action>(FindInPath)
 map <leader>fs <Action>(GotoSymbol)
 
 " Git
-map <leader>gb <Action>(Git.Branch)
+map <leader>gb <Action>(Git.Branches)
 map <leader>ga <Action>(Annotate)
 
 " Run  - Debug
@@ -63,7 +64,8 @@ map <leader>t <Action>(ActivateTerminalToolWindow)
 
 map gl <Action>(ShowErrorDescription)
 map gr <Action>(ShowUsages)
-map gi <Action>(GotoImplementation)
+map gI <Action>(GotoImplementation)
+map gT <Action>(GotoTest)
 
 " Project
 map <leader>po <Action>(ManageRecentProjects)
