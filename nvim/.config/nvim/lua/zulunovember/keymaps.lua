@@ -2,6 +2,9 @@ local opts = { noremap = true, silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
+local nmap = function(keys, func)
+    vim.keymap.set('n', keys, func, { noremap = true, silent = true })
+end
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -21,15 +24,15 @@ vim.g.maplocalleader = " "
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
-
---terminal
-keymap("n", "<leader>t", ":tabnew +terminal<CR>", opts)
-keymap("t", "<C-q>", "<C-\\><C-n>", opts)
-
+keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Navigate quickfix list
 keymap("n", "gn", ":cn<CR>", opts)
 keymap("n", "gp", ":cp<CR>", opts)
+
+-- config
+keymap("n", "\\e", ":tabe $HOME/.config/nvim/init.lua<CR>", opts)
+keymap("n", "\\r", ":source $HOME/.config/nvim/init.lua<CR>", opts)
 
 -- Insert --
 keymap("i", "C-c", "<ESC>", opts)
