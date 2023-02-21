@@ -9,7 +9,9 @@ local float = require'lir.float'
 
 lir.setup({
     show_hidden_files = true,
-    devicons_enable = true,
+    devicons = {
+        enable = true,
+    },
     hide_cursor = true,
     mappings = {
         ['l']     = actions.edit,
