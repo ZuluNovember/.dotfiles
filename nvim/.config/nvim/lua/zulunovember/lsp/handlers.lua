@@ -17,12 +17,14 @@ local on_attach = function(_, bufnr)
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
     nmap('gl', vim.diagnostic.open_float)
+    nmap("<leader>en", ':lua vim.diagnostic.goto_next()<CR>')
+    nmap("<leader>ep", ':lua vim.diagnostic.goto_previous()<CR>')
 
     nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
     nmap('<leader>fs', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation') needs remap
 
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 end
