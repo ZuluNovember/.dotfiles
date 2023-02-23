@@ -1,9 +1,3 @@
-local openTelescope = function ()
-  if (vim.api.nvim_buf_get_name(0) == "") then
-    require('user.telescope-config').project_files()
-  end
-end
-
 vim.cmd([[
   augroup _general_settings
     autocmd!
@@ -22,8 +16,3 @@ vim.cmd([[
   --   autocmd!
   --   autocmd BufWritePre * lua vim.lsp.buf.formatting()
   -- augroup end
-
-vim.api.nvim_create_autocmd({"VimEnter"}, {
-  pattern = {"*"},
-  callback = openTelescope
-})
