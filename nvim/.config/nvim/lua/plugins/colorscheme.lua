@@ -1,10 +1,11 @@
 return {
     {
-        "kaiuri/onigiri.nvim",
+        "catppuccin/nvim",
+        name = "catppuccin",
         lazy = true,
     },
     {
-        "tiagovla/tokyodark.nvim",
+        "ZuluNovember/chic.nvim",
         lazy = true,
     },
 }

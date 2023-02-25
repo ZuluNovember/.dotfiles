@@ -44,13 +44,6 @@ nvim_lsp["tsserver"].setup({
     root_dir = require('lspconfig.util').root_pattern('.git'),
 })
 
-nvim_lsp["eslint"].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-    root_dir = require('lspconfig.util').root_pattern('.git'),
-})
-
 nvim_lsp["quick_lint_js"].setup{}
 
 local runtime_path = vim.split(package.path, ';')
