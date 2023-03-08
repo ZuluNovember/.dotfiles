@@ -43,7 +43,6 @@ yabai -m space 3 --label code
 #yabai -m rule --add app="^GoLand.*$" title="Preferences" space=code manage=off
 #yabai -m rule --add app="^IntelliJ.*$" space=code
 #yabai -m rule --add app="^IntelliJ.*$" title="Preferences" space=code manage=off
-yabai -m config --space code layout stack
 
 #Desktop 4
 yabai -m space 4 --label slack
