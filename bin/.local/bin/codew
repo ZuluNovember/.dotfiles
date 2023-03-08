@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+selected=$(find ~/github.com/ZuluNovember ~/github.com/BiTaksi -mindepth 1 -maxdepth 1 -type d | fzf)
+
+code "$selected"
