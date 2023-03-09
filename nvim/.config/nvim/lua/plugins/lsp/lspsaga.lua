@@ -16,7 +16,7 @@ require("lspsaga").setup({
         show_server_name = true,
         extend_gitsigns = true,
         keys = {
-            quit = "q",
+            quit = { "q", "<ESC>" },
             exec = { "l", "<CR>" },
         },
     },
