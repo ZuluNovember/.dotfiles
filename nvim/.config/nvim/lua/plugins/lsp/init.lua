@@ -21,7 +21,6 @@ return {
                     nls.builtins.formatting.eslint,
                     nls.builtins.diagnostics.eslint,
                     nls.builtins.code_actions.eslint,
-                    nls.builtins.diagnostics.shellcheck,
                 },
                 root_dir = require("null-ls.utils").root_pattern(".git"),
             })

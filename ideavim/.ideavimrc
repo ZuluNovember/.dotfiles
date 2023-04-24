@@ -65,7 +65,7 @@ map <leader>t <Action>(ActivateTerminalToolWindow)
 map gl <Action>(ShowErrorDescription)
 map gr <Action>(ShowUsages)
 map gI <Action>(GotoImplementation)
-map gT <Action>(GotoTest)
+map gT <Action>(GotoTypeDeclaration)
 
 " Project
 map <leader>po <Action>(ManageRecentProjects)

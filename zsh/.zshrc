@@ -101,10 +101,10 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vpn="sudo openvpn --daemon --cd ~/vpnconfig --config bitaksi.ovpn"
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${HOME}/go/bin:${PATH}"
 export PATH=$PATH:/usr/local/go/bin
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

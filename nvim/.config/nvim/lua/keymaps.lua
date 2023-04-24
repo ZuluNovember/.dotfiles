@@ -67,6 +67,8 @@ if vim.g.vscode then
 
     -- code
     nmap("K", [[<Cmd>call VSCodeNotify('editor.action.showHover')<CR>]])
+
+    nmap("<leader>lf", [[<Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>]])
     nmap("<leader>la", [[<Cmd>call VSCodeNotify('editor.action.quickFix')<CR>]])
     nmap("<leader>lr", [[<Cmd>call VSCodeNotify('editor.action.rename')<CR>]])
 end
