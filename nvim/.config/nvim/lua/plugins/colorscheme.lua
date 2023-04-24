@@ -4,7 +4,7 @@ return {
 		lazy = true,
 	},
 	{
-		"lourenci/github-colors",
+		"sainnhe/sonokai",
 		lazy = true,
 	},
 }
