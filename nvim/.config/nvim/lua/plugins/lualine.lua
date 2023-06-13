@@ -1,7 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
-    config = function ()
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
         local lualine = require("lualine")
 
         local hide_in_width = function()
@@ -22,7 +22,7 @@ return {
             "diff",
             colored = true,
             symbols = { added = " ", modified = " ", removed = " " },
-          cond = hide_in_width
+            cond = hide_in_width,
         }
 
         local mode = {
@@ -63,7 +63,7 @@ return {
                 always_divide_middle = true,
             },
             sections = {
-                lualine_a = { {"filename", path = 1 }, branch, diagnostics },
+                lualine_a = { { "filename", path = 1 }, branch, diagnostics },
                 lualine_b = { mode },
                 lualine_c = {},
                 -- lualine_x = { "encoding", "fileformat", "filetype" },
@@ -82,5 +82,5 @@ return {
             tabline = {},
             extensions = {},
         })
-    end
+    end,
 }
