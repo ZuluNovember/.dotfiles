@@ -98,4 +98,11 @@ nvim_lsp["pyright"].setup({
     root_dir = require("lspconfig.util").root_pattern(".git"),
 })
 
+nvim_lsp["elixirls"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+    root_dir = require("lspconfig.util").root_pattern(".git"),
+})
+
 return M
