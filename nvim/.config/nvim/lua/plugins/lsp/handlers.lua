@@ -14,7 +14,7 @@ local on_attach = function(_, bufnr)
     nmap("<leader>lf", vim.lsp.buf.format)
 
     nmap("gd", "<cmd>Lspsaga goto_definition<CR>")
-    nmap("gr", "<cmd>Lspsaga lsp_finder<CR>")
+    nmap("gr", "<cmd>Lspsaga finder<CR>")
     nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
     nmap("gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
     nmap("<leader>en","<cmd>Lspsaga diagnostic_jump_next<CR>")
@@ -43,8 +43,6 @@ nvim_lsp["tsserver"].setup({
     flags = lsp_flags,
     root_dir = require("lspconfig.util").root_pattern(".git"),
 })
-
-nvim_lsp["quick_lint_js"].setup({})
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
@@ -98,7 +96,7 @@ nvim_lsp["pyright"].setup({
     root_dir = require("lspconfig.util").root_pattern(".git"),
 })
 
-nvim_lsp["elixirls"].setup({
+nvim_lsp["eslint"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
