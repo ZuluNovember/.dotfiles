@@ -5,7 +5,7 @@ return {
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "go", "javascript", "help", "typescript", "lua", "rust" },
+				ensure_installed = { "go", "javascript", "typescript", "lua", "rust" },
 				sync_install = false,
 				ignore_install = { "" },
 				autopairs = {

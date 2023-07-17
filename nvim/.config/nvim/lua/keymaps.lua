@@ -35,7 +35,7 @@ keymap("n", "\\e", ":tabe $HOME/.config/nvim/init.lua<CR>", opts)
 keymap("n", "\\r", ":source $HOME/.config/nvim/init.lua<CR>", opts)
 
 -- Insert --
-keymap("i", "C-c", "<ESC>", opts)
+keymap("i", "<C-c>", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -46,6 +46,10 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+-- Terminal
+keymap("n", "<leader>ts", ":vsplit +terminal<CR>", opts)
+keymap("t", "<C-q>", "<C-\\><C-n>", opts)
 
 -- shortcuts for nvim vscode plugin
 if vim.g.vscode then
