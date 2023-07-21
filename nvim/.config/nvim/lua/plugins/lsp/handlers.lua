@@ -18,8 +18,8 @@ local on_attach = function(_, bufnr)
     nmap("gI", vim.lsp.buf.implementation, "[g]oto [I]mplementation")
     nmap("gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
     nmap("gT", vim.lsp.buf.type_definition, "[g]oto [T]ype")
-    nmap("<leader>en","<cmd>Lspsaga diagnostic_jump_next<CR>")
-    nmap("<leader>ep","<cmd>Lspsaga diagnostic_jump_prev<CR>")
+    nmap("<leader>en", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+    nmap("<leader>ep", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 
     nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[d]ocument [s]ymbols")
     nmap("<leader>fs", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[f]ind [s]ymbols")
@@ -28,6 +28,14 @@ local on_attach = function(_, bufnr)
     -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation') needs remap
 
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+    -- autocmd
+    vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = '*.go',
+        callback = function()
+            vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+        end
+    })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -72,6 +80,7 @@ nvim_lsp["lua_ls"].setup({
 })
 
 nvim_lsp["gopls"].setup({
+    cmd = {"gopls", "serve"},
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { "go", "gomod" },
@@ -82,7 +91,11 @@ nvim_lsp["gopls"].setup({
             usePlaceholders = false,
             buildFlags = { "-tags=integration" },
             gofumpt = true,
-            ["local"] = "<repo>",
+            ["local"] = "github.com/BiTaksi",
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
         },
     },
     init_options = {
