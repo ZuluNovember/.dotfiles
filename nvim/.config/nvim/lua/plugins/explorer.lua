@@ -16,7 +16,7 @@ return {
             enable_git_status = true,
             enable_diagnostics = true,
             open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-            sort_case_insensitive = false,                            -- used when sorting files and directories in the tree
+            sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
             default_component_configs = {
                 container = {
                     enable_character_fade = true,
@@ -56,16 +56,16 @@ return {
                 git_status = {
                     symbols = {
                         -- Change type
-                        added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-                        modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-                        deleted = "✖", -- this can only be used in the git_status source
-                        renamed = "", -- this can only be used in the git_status source
+                        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+                        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+                        deleted   = "✖", -- this can only be used in the git_status source
+                        renamed   = "󰁕", -- this can only be used in the git_status source
                         -- Status type
                         untracked = "",
-                        ignored = "",
-                        unstaged = "",
-                        staged = "",
-                        conflict = "",
+                        ignored   = "",
+                        unstaged  = "󰄱",
+                        staged    = "",
+                        conflict  = "",
                     },
                 },
             },
@@ -151,9 +151,11 @@ return {
                         --".null-ls_*",
                     },
                 },
-                follow_current_file = false, -- This will find and focus the file in the active buffer every
+                follow_current_file = {
+                    enabled = false
+                },
                 -- time the current file is changed while the tree is open.
-                group_empty_dirs = false,   -- when true, empty folders will be grouped together
+                group_empty_dirs = false,               -- when true, empty folders will be grouped together
                 hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
                 -- in whatever position is specified in window.position
                 -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -186,7 +188,9 @@ return {
                 commands = {}, -- Add a custom command or override a global one using the same function name
             },
             buffers = {
-                follow_current_file = true, -- This will find and focus the file in the active buffer every
+                follow_current_file = {
+                    enabled = true,
+                },                       -- This will find and focus the file in the active buffer every
                 -- time the current file is changed while the tree is open.
                 group_empty_dirs = true, -- when true, empty folders will be grouped together
                 show_unloaded = true,
@@ -205,15 +209,16 @@ return {
                         ["A"] = "git_add_all",
                         ["gu"] = "git_unstage_file",
                         ["ga"] = "git_add_file",
-                        ["gr"] = "git_revert_file",
-                        ["gc"] = "git_commit",
-                        ["gp"] = "git_push",
-                        ["gg"] = "git_commit_and_push",
+                        ["t"] = "git_revert_file",
+                        ["c"] = "git_commit",
+                        ["p"] = "git_push",
+                        ["gcp"] = "git_commit_and_push",
                     },
                 },
             },
         })
 
         vim.cmd([[nnoremap <leader>x :Neotree reveal<cr>]])
+        vim.cmd([[nnoremap <leader>gs :Neotree git_status<cr>]])
     end,
 }

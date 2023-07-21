@@ -15,13 +15,14 @@ local on_attach = function(_, bufnr)
 
     nmap("gd", "<cmd>Lspsaga goto_definition<CR>")
     nmap("gr", "<cmd>Lspsaga finder<CR>")
-    nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+    nmap("gI", vim.lsp.buf.implementation, "[g]oto [I]mplementation")
     nmap("gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+    nmap("gT", vim.lsp.buf.type_definition, "[g]oto [T]ype")
     nmap("<leader>en","<cmd>Lspsaga diagnostic_jump_next<CR>")
     nmap("<leader>ep","<cmd>Lspsaga diagnostic_jump_prev<CR>")
 
-    nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-    nmap("<leader>fs", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+    nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[d]ocument [s]ymbols")
+    nmap("<leader>fs", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[f]ind [s]ymbols")
 
     nmap("K", "<cmd>Lspsaga hover_doc<CR>", "Hover Documentation")
     -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation') needs remap
@@ -92,6 +93,11 @@ nvim_lsp["gopls"].setup({
 nvim_lsp["pyright"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
+})
+
+nvim_lsp["metals"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
     flags = lsp_flags,
     root_dir = require("lspconfig.util").root_pattern(".git"),
 })
@@ -101,6 +107,13 @@ nvim_lsp["eslint"].setup({
     capabilities = capabilities,
     flags = lsp_flags,
     root_dir = require("lspconfig.util").root_pattern(".git"),
+})
+
+nvim_lsp["rust_analyzer"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+    root_dir = require("lspconfig.util").root_pattern("Cargo.toml"),
 })
 
 return M

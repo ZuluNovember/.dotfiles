@@ -49,6 +49,7 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal
 keymap("n", "<leader>ts", ":vsplit +terminal<CR>", opts)
+keymap("n", "<leader>tl", ":vsplit +terminal\\ lazygit<CR>", opts)
 keymap("t", "<C-q>", "<C-\\><C-n>", opts)
 
 -- shortcuts for nvim vscode plugin
