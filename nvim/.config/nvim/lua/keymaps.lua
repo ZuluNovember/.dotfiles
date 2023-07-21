@@ -51,29 +51,3 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>ts", ":vsplit +terminal<CR>", opts)
 keymap("n", "<leader>tl", ":vsplit +terminal\\ lazygit<CR>", opts)
 keymap("t", "<C-q>", "<C-\\><C-n>", opts)
-
--- shortcuts for nvim vscode plugin
-if vim.g.vscode then
-    -- find
-    nmap("<leader>ff", [[<Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>]])
-    nmap("<leader>fs", [[<Cmd>call VSCodeNotify('workbench.action.showAllSymbols')<CR>]])
-
-    -- nav
-    nmap("<leader>en", [[<Cmd>call VSCodeNotify('editor.action.marker.next')<CR>]])
-    nmap("<leader>ep", [[<Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>]])
-
-    -- goto
-    nmap("gr", [[<Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>]])
-    nmap("gI", [[<Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>]])
-
-    -- terminal
-    nmap("<leader>tt", [[<Cmd>call VSCodeNotify('workbench.action.terminal.toggleTerminal')<CR>]])
-    nmap("<leader>to", [[<Cmd>call VSCodeNotify('workbench.action.terminal.openNativeConsole')<CR>]])
-
-    -- code
-    nmap("K", [[<Cmd>call VSCodeNotify('editor.action.showHover')<CR>]])
-
-    nmap("<leader>lf", [[<Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>]])
-    nmap("<leader>la", [[<Cmd>call VSCodeNotify('editor.action.quickFix')<CR>]])
-    nmap("<leader>lr", [[<Cmd>call VSCodeNotify('editor.action.rename')<CR>]])
-end
