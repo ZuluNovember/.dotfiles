@@ -13,4 +13,6 @@ vim.cmd([[
   augroup end
 ]])
 
+-- auto insert mode in terminal
 vim.cmd([[autocmd BufEnter * if &buftype ==# 'terminal' | startinsert! | endif]])
+vim.cmd([[autocmd TermOpen * startinsert]])

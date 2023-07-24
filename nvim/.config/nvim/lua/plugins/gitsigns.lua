@@ -10,5 +10,13 @@ return {
             changedelete = { text = "~" },
           },
         }
+
+        local keymap = vim.api.nvim_set_keymap
+        local opts = { noremap = true, silent = true }
+
+        keymap('n', '<leader>gl', '<cmd>Gitsigns blame_line<CR>', opts)
+        keymap('n', '<leader>hp', '<cmd>Gitsigns prev_hunk<CR>', opts)
+        keymap('n', '<leader>hn', '<cmd>Gitsigns next_hunk<CR>', opts)
+        keymap('n', '<leader>hP', '<cmd>Gitsigns preview_hunk<CR>', opts)
     end
 }
