@@ -2,6 +2,9 @@ local opts = { noremap = true, silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
+local nmap = function(keys, func)
+    vim.keymap.set('n', keys, func, { noremap = true, silent = true })
+end
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -46,5 +49,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal
 keymap("n", "<leader>ts", ":vsplit +terminal<CR>", opts)
-keymap("n", "<leader>tl", ":vsplit +terminal\\ lazygit<CR>", opts)
+--keymap("n", "<leader>tl", ":vsplit +terminal\\ lazygit<CR>", opts)
+keymap("n", "<leader>tl", ":lua require('util_funcs').open_float_terminal('lazygit')<CR>", opts)
 keymap("t", "<C-q>", "<C-\\><C-n>", opts)
