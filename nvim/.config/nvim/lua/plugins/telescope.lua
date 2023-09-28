@@ -12,6 +12,7 @@ return {
 				mappings = {
 					i = {
 						["<esc>"] = actions.close,
+						["<C-q>"] = actions.smart_send_to_qflist,
 					},
 					n = {},
 				},
@@ -43,5 +44,6 @@ return {
 		-- KEYMAPS
 		vim.keymap.set("n", "<leader>ff", project_files)
 		vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
+		vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>")
 	end,
 }

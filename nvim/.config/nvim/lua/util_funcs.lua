@@ -18,9 +18,6 @@ function M.open_float_terminal(cmd)
         border = "single",
     })
 
-    -- close mapping
-    vim.api.nvim_buf_set_keymap(bufnr, "t", "q", "<cmd>q<CR>", { noremap = true, silent = true })
-
     vim.fn.termopen(cmd)
 end
 

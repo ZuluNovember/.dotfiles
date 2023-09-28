@@ -13,7 +13,6 @@ local on_attach = function(_, bufnr)
     nmap("<leader>la", "<cmd>Lspsaga code_action<CR>")
     nmap("<leader>lf", vim.lsp.buf.format)
 
-    nmap("gd", "<cmd>Lspsaga goto_definition<CR>")
     nmap("gr", "<cmd>Lspsaga finder<CR>")
     nmap("gI", vim.lsp.buf.implementation, "[g]oto [I]mplementation")
     nmap("gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
