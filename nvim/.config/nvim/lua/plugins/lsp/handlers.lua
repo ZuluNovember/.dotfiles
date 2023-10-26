@@ -13,10 +13,12 @@ local on_attach = function(_, bufnr)
     nmap("<leader>la", "<cmd>Lspsaga code_action<CR>")
     nmap("<leader>lf", vim.lsp.buf.format)
 
+    nmap("gd", "<cmd>Lspsaga goto_definition<CR>")
     nmap("gr", "<cmd>Lspsaga finder<CR>")
     nmap("gI", vim.lsp.buf.implementation, "[g]oto [I]mplementation")
     nmap("gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
-    nmap("gT", vim.lsp.buf.type_definition, "[g]oto [T]ype")
+    nmap("gT", "<cmd>Lspsaga goto_type_definition<CR>", "[g]oto [T]ype")
+
     nmap("<leader>en", "<cmd>Lspsaga diagnostic_jump_next<CR>")
     nmap("<leader>ep", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 
@@ -41,7 +43,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local nvim_lsp = require("lspconfig")
 local lsp_flags = {
-    -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
 }
 
@@ -127,5 +128,12 @@ nvim_lsp["rust_analyzer"].setup({
     flags = lsp_flags,
     root_dir = require("lspconfig.util").root_pattern("Cargo.toml"),
 })
+
+nvim_lsp["solargraph"].setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+})
+
 
 return M
