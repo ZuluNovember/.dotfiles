@@ -49,6 +49,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal
 keymap("n", "<leader>ts", ":vsplit +terminal<CR>", opts)
---keymap("n", "<leader>tl", ":vsplit +terminal\\ lazygit<CR>", opts)
+keymap("n", "<leader>tt", ":10split +terminal<CR>", opts)
 keymap("n", "<leader>tl", ":lua require('util_funcs').open_float_terminal('lazygit')<CR>", opts)
 keymap("t", "<C-q>", "<C-\\><C-n>", opts)

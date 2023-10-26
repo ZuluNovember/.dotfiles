@@ -16,3 +16,4 @@ vim.cmd([[
 -- auto insert mode in terminal
 vim.cmd([[autocmd BufEnter * if &buftype ==# 'terminal' | startinsert! | endif]])
 vim.cmd([[autocmd TermOpen * startinsert]])
+vim.cmd([[autocmd TermOpen * setlocal nonumber norelativenumber]])
