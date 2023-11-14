@@ -1,12 +1,11 @@
 return {
     {
         "ZuluNovember/chic.nvim",
-        lazy = true,
     },
     {
         "sainnhe/everforest",
         config = function()
-            vim.g.everforest_background = "medium"
+            vim.g.everforest_background = "hard"
         end
     },
 }

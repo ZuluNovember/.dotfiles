@@ -44,5 +44,6 @@ return {
 		-- KEYMAPS
 		vim.keymap.set("n", "<leader>ff", project_files)
 		vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
+		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
 	end,
 }
