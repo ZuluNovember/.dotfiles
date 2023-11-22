@@ -40,6 +40,7 @@ map <leader>lR <Action>(Refactorings.QuickListPopupAction)
 map <leader>ff <Action>(GotoFile)
 map <leader>fg <Action>(FindInPath)
 map <leader>fs <Action>(GotoSymbol)
+map <leader>fa <Action>(GotoAction)
 
 " Git
 map <leader>gb <Action>(Git.Branches)
@@ -61,7 +62,7 @@ map [[ <Action>(MethodUp)
 map ]] <Action>(MethodDown)
 
 map <leader>x :NERDTreeToggle<CR>
-map <leader>t <Action>(ActivateTerminalToolWindow)
+map <leader>tt <Action>(ActivateTerminalToolWindow)
 
 map gl <Action>(ShowErrorDescription)
 map gr <Action>(ShowUsages)
