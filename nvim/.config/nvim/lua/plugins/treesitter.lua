@@ -4,8 +4,10 @@ return {
 		config = function()
 			local configs = require("nvim-treesitter.configs")
 
+---@diagnostic disable-next-line: missing-fields
 			configs.setup({
 				ensure_installed = { "go", "javascript", "typescript", "lua", "rust" },
+                auto_install = true,
 				sync_install = false,
 				ignore_install = { "" },
 				autopairs = {
