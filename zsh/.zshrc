@@ -69,7 +69,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+    git
+    colored-man-pages
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +110,3 @@ export PATH="${HOME}/go/bin:${PATH}"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="${HOME}/.cargo/bin:${PATH}"
 export PATH="${HOME}/.cargo/bin:${PATH}"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-eval "$(rbenv init - zsh)"
