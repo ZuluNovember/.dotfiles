@@ -108,13 +108,6 @@ nvim_lsp["pyright"].setup({
     capabilities = capabilities,
 })
 
-nvim_lsp["metals"].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-    root_dir = require("lspconfig.util").root_pattern(".git"),
-})
-
 nvim_lsp["eslint"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -129,7 +122,7 @@ nvim_lsp["rust_analyzer"].setup({
     root_dir = require("lspconfig.util").root_pattern("Cargo.toml"),
 })
 
-nvim_lsp["solargraph"].setup({
+nvim_lsp["clangd"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,

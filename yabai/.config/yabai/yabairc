@@ -14,7 +14,7 @@ yabai -m config window_shadow                off
 yabai -m config window_opacity               on
 yabai -m config window_opacity_duration      0.0
 yabai -m config active_window_opacity        1.0
-yabai -m config normal_window_opacity        0.95
+# yabai -m config normal_window_opacity        0.95
 yabai -m config active_window_border_color   0xff775759
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xaad75f5f
@@ -53,7 +53,7 @@ yabai -m rule --add app="^Slack$" space=slack
 # yabai -m config --space games layout        float
 
 # exceptions
-applications="(System Settings|Finder|OpenVPN|Bitwarden|Studio 3T.*|Brave Browser.+$)"
+applications="(System Settings|Finder|OpenVPN|Bitwarden|Studio 3T.*|Brave Browser.+$|Calculator)"
 yabai -m rule --add app="${applications}" manage=off
 yabai -m rule --add title="JetBrains Toolbox" manage=off
 

@@ -106,9 +106,14 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias python=python3
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${HOME}/go/bin:${PATH}"
 export PATH=$PATH:/usr/local/go/bin
-export PATH="${HOME}/.cargo/bin:${PATH}"
-export PATH="${HOME}/.cargo/bin:${PATH}"
+
+# fnm
+if command -v fnm >/dev/null 2>&1; then
+  # Command exists
+  eval "`fnm env --use-on-cd --shell zsh`"
+fi
