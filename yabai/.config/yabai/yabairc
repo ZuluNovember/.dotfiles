@@ -53,9 +53,11 @@ yabai -m rule --add app="^Slack$" space=slack
 # yabai -m config --space games layout        float
 
 # exceptions
-applications="(System Settings|Finder|OpenVPN|Bitwarden|Studio 3T.*|Brave Browser.+$|Calculator)"
+applications="(System Settings|Finder|OpenVPN|Bitwarden|Brave Browser.+$|Calculator|Android.*)"
 yabai -m rule --add app="${applications}" manage=off
 yabai -m rule --add title="JetBrains Toolbox" manage=off
+yabai -m rule --add title="Android Emulator.*" manage=off
+yabai -m rule --add title="Settings" manage=off
 
 # signals
 # yabai -m signal --add event=window_destroyed active=yes action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse &> /dev/null || yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id) &> /dev/null"

@@ -112,6 +112,11 @@ export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="${HOME}/go/bin:${PATH}"
 export PATH=$PATH:/usr/local/go/bin
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # fnm
 if command -v fnm >/dev/null 2>&1; then
   # Command exists
