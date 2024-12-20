@@ -1,49 +1,43 @@
 return {
-	"nvim-telescope/telescope.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
-	config = function()
-		local telescope = require("telescope")
-		local actions = require("telescope.actions")
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+    },
+    config = function()
+        local telescope = require("telescope")
+        telescope.setup {
+            pickers = {
+                find_files = {
+                    theme = "ivy"
+                },
+                git_files = {
+                    theme = "ivy"
+                },
+            },
+            extensions = {
+                fzf = {}
+            }
+        }
 
-		telescope.setup({
-			defaults = {
-				path_display = { "truncate" },
+        local project_files = function()
+            local ok = pcall(require("telescope.builtin").git_files)
+            if not ok then
+                require("telescope.builtin").find_files()
+            end
+        end
 
-				mappings = {
-					i = {
-						["<esc>"] = actions.close,
-						["<C-q>"] = actions.smart_send_to_qflist,
-					},
-					n = {},
-				},
-			},
-			extensions = {},
-		})
+        telescope.load_extension('fzf')
 
-		local dropdown_theme = require("telescope.themes").get_dropdown({
-			results_height = 20,
-			winblend = 20,
-			width = 0.8,
-			prompt_title = "",
-			prompt_prefix = "Files>",
-			previewer = false,
-			borderchars = {
-				prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-				results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-				preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-			},
-		})
-
-		local project_files = function()
-			local ok = pcall(require("telescope.builtin").git_files, dropdown_theme)
-			if not ok then
-				require("telescope.builtin").find_files(dropdown_theme)
-			end
-		end
-
-		-- KEYMAPS
-		vim.keymap.set("n", "<leader>ff", project_files)
-		vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
-		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
-	end,
+        -- KEYMAPS
+        vim.keymap.set("n", "<leader>ff", project_files)
+        vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+        vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+        vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
+        vim.keymap.set("n", "<leader>fc", function()
+            require('telescope.builtin').find_files {
+                cwd = vim.fn.stdpath("config")
+            }
+        end)
+    end,
 }
