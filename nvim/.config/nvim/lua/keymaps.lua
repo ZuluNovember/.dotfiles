@@ -1,10 +1,5 @@
-local opts = { noremap = true, silent = true }
-
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -19,34 +14,36 @@ vim.g.maplocalleader = " "
 -- Normal --
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Navigate quickfix list
-keymap("n", "gn", ":cn<CR>", opts)
-keymap("n", "gp", ":cp<CR>", opts)
+vim.keymap.set("n", "gn", ":cn<CR>")
+vim.keymap.set("n", "gp", ":cp<CR>")
 
 -- config
-keymap("n", "\\e", ":tabe $HOME/.config/nvim/init.lua<CR>", opts)
-keymap("n", "\\r", ":source $HOME/.config/nvim/init.lua<CR>", opts)
+vim.keymap.set("n", "\\e", ":tabe $HOME/.config/nvim/init.lua<CR>")
+vim.keymap.set("n", "\\r", ":source $HOME/.config/nvim/init.lua<CR>")
 
 -- Insert --
-keymap("i", "<C-c>", "<ESC>", opts)
+vim.keymap.set("i", "<C-c>", "<ESC>")
 
 -- Visual --
+-- paste without changing register content
+vim.keymap.set("x", "p", '"_c<Esc>p')
+
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
+vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
 
 -- Terminal
-keymap("n", "<leader>ts", ":vsplit +terminal<CR>", opts)
-keymap("n", "<leader>tt", ":10split +terminal<CR>", opts)
-keymap("n", "<leader>tl", ":lua require('util_funcs').open_float_terminal('lazygit')<CR>", opts)
-keymap("t", "<C-q>", "<C-\\><C-n>", opts)
+vim.keymap.set("n", "<leader>ts", ":vsplit +terminal<CR>")
+vim.keymap.set("n", "<leader>tt", ":10split +terminal<CR>")
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
