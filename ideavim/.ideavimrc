@@ -63,6 +63,9 @@ map ]] <Action>(MethodDown)
 
 map <leader>x :NERDTreeToggle<CR>
 map <leader>tt <Action>(ActivateTerminalToolWindow)
+map <leader>tl <Action>(Tool_External Tools_lazygit)
+map <leader>tp <Action>(Tool_External Tools_plans)
+
 
 map gl <Action>(ShowErrorDescription)
 map gr <Action>(ShowUsages)
