@@ -20,4 +20,7 @@ require("lspsaga").setup({
             exec = { "l", "<CR>" },
         },
     },
+    symbol_in_winbar = {
+        enable = false
+    }
 })

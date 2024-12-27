@@ -44,6 +44,3 @@ vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
 
 -- Terminal
-vim.keymap.set("n", "<leader>ts", ":vsplit +terminal<CR>")
-vim.keymap.set("n", "<leader>tt", ":10split +terminal<CR>")
-vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")

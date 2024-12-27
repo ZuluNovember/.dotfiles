@@ -1,20 +1,14 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        opts = {
-            flavor = "mocha",
-        },
-        config= function ()
-            require("catppuccin").setup {
-                color_overrides = {
-                    mocha = {
-                        base="#282c34"
-                    }
-                }
-            }
-            vim.cmd.colorscheme("catppuccin")
-        end
-    }
+        'projekt0n/github-nvim-theme',
+        name = 'github-theme',
+        config = function()
+            require('github-theme').setup({})
+
+            vim.cmd('colorscheme github_dark')
+        end,
+    },
+    {
+        'Yazeed1s/oh-lucy.nvim',
+    },
 }

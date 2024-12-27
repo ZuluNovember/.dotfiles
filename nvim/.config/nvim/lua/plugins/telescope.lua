@@ -7,6 +7,13 @@ return {
     config = function()
         local telescope = require("telescope")
         telescope.setup {
+            defaults = {
+                mappings = {
+                    i = {
+                        ["<esc>"] = require('telescope.actions').close,
+                    },
+                },
+            },
             pickers = {
                 find_files = {
                     theme = "ivy"
@@ -17,7 +24,7 @@ return {
             },
             extensions = {
                 fzf = {}
-            }
+            },
         }
 
         local project_files = function()
@@ -34,9 +41,17 @@ return {
         vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
         vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
         vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
+        -- find in config dir
         vim.keymap.set("n", "<leader>fc", function()
             require('telescope.builtin').find_files {
                 cwd = vim.fn.stdpath("config")
+            }
+        end)
+
+        -- find in plugin data dir
+        vim.keymap.set("n", "<leader>fp", function()
+            require('telescope.builtin').find_files {
+                cwd = vim.fn.stdpath("data")
             }
         end)
     end,
