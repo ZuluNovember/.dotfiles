@@ -44,7 +44,8 @@ return {
         -- find in config dir
         vim.keymap.set("n", "<leader>fc", function()
             require('telescope.builtin').find_files {
-                cwd = vim.fn.stdpath("config")
+                cwd = vim.fn.getenv("HOME") .. "/.config",
+                follow = true
             }
         end)
 

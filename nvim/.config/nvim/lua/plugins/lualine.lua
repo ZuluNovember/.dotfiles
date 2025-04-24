@@ -192,7 +192,7 @@ return {
                 lualine_x = {
                     { getScrollPos, width = 100, padding = { left = 10, right = 1 } },
                 },
-                lualine_z = { nil },
+                lualine_z = { "lsp_status" },
             },
             inactive_sections = {
                 lualine_a = { { window, color = { fg = "#26ffbb", bg = "#282828" } } },

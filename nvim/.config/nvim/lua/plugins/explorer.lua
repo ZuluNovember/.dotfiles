@@ -99,7 +99,7 @@ return {
                     -- ['C'] = 'close_all_subnodes',
                     ["z"] = "close_all_nodes",
                     --["Z"] = "expand_all_nodes",
-                    ["a"] = {
+                    ["n"] = {
                         "add",
                         -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
                         -- some commands may take optional config options, see `:h neo-tree-mappings` for details
@@ -107,7 +107,7 @@ return {
                             show_path = "none", -- "none", "relative", "absolute"
                         },
                     },
-                    ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
+                    ["N"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
                     ["d"] = "delete",
                     ["r"] = "rename",
                     ["y"] = "copy_to_clipboard",

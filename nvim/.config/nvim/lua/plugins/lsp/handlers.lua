@@ -31,12 +31,12 @@ local on_attach = function(_, bufnr)
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
     -- autocmd
-    vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = '*.go',
-        callback = function()
-            vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
-        end
-    })
+    -- vim.api.nvim_create_autocmd('BufWritePre', {
+    --     pattern = '*.go',
+    --     callback = function()
+    --         vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+    --     end
+    -- })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -86,21 +86,6 @@ nvim_lsp["gopls"].setup({
     filetypes = { "go", "gomod" },
     root_dir = require("lspconfig.util").root_pattern("go.mod", ".git"),
     flags = lsp_flags,
-    settings = {
-        ["gopls"] = {
-            usePlaceholders = false,
-            buildFlags = { "-tags=integration" },
-            gofumpt = true,
-            ["local"] = "github.com/BiTaksi",
-            analyses = {
-                unusedparams = true,
-            },
-            staticcheck = true,
-        },
-    },
-    init_options = {
-        buildFlags = { "-tags=integration" },
-    },
 })
 
 nvim_lsp["pyright"].setup({
