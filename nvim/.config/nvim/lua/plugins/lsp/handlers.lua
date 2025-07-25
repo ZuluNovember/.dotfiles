@@ -39,7 +39,11 @@ local on_attach = function(_, bufnr)
     -- })
 end
 
+local ok, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+if ok then
+  capabilities = cmp_lsp.default_capabilities()
+end
 
 local nvim_lsp = require("lspconfig")
 local lsp_flags = {

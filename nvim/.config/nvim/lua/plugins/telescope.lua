@@ -44,7 +44,9 @@ return {
         -- find in config dir
         vim.keymap.set("n", "<leader>fc", function()
             require('telescope.builtin').find_files {
-                cwd = vim.fn.getenv("HOME") .. "/.config",
+                cwd = vim.fn.getenv("HOME") .. "/.dotfiles",
+                file_ignore_patterns={"/fonts", "%.git/", ".DS_Store"},
+                hidden = true,
                 follow = true
             }
         end)
