@@ -1,5 +1,9 @@
 # open terminal
-alt - return : open -a /Applications/Alacritty.app
+alt - return : open -a /Applications/Ghostty.app
+
+# start-stop yabai
+alt - y : yabai --start-service && say -v Kyoko "やばい"
+shift + alt - y : yabai --stop-service && say -v Kyoko "やばい off"
 
 # focus window
 alt - h : yabai -m window --focus west

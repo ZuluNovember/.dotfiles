@@ -80,9 +80,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 #
-# Binds
-bindkey -s ^f "tmux-sessionizer\n"
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -106,6 +103,8 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias frepo='cd "$(find ~/github.com -mindepth 2 -maxdepth 2 -type d | fzf)"'
+
 alias python=python3
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 export PATH="${HOME}/.local/bin:${PATH}"
@@ -117,8 +116,6 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# fnm
-if command -v fnm >/dev/null 2>&1; then
-  # Command exists
-  eval "`fnm env --use-on-cd --shell zsh`"
-fi
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
